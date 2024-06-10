@@ -87,7 +87,7 @@ content: "Alfred reporting for duty, ready to help you conquer your collaborativ
       <div className="w-full max-w-screen-md mx-auto">
         {msgHistory/* .filter((message)=> message.role !== 'model') */
           .map((message,idx) =>(
-            <div key={idx} className="mt-3">
+            <div key={idx} className="my-3">
               <div className="font-bold">{message.role === 'user' ? 'You ' : 'Assistant'}</div>
               <div
               className="text-lg prose"
