@@ -6,7 +6,7 @@ import ReactMarkdown from 'react-markdown'
 
 
 export default function Home() {
-  const [apiKey, setApiKey] = useState('AIzaSyAdgypHPvwOqqRwJgM-Yo5rq_Whzz7GJb4');
+  const [apiKey, setApiKey] = useState('');
 const [msgHistory,setMsgHistory] = useState([{role: "model",
 content: "Alfred reporting for duty, ready to help you conquer your collaborative goals! 😎 💥 \n"},])
 /* console.log('api key:' ,apiKey) */
