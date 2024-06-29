@@ -1,14 +1,13 @@
 import { useState } from "react";
 import {GoogleGenerativeAI} from '@google/generative-ai';
 import ReactMarkdown from 'react-markdown'
-
-
+import Navbar from "@/Components/Navbar/Navbar";
 
 
 export default function Home() {
   const [apiKey, setApiKey] = useState('');
 const [msgHistory,setMsgHistory] = useState([{role: "model",
-content: "Alfred reporting for duty, ready to help you conquer your collaborative goals! 😎 💥 \n"},])
+content: "Hi there! I'm John, your friendly language-learning sidekick! 👋 Let's have some fun while you explore the exciting world of [target language]. 🌎 What are you interested in talking about today?"},])
 /* console.log('api key:' ,apiKey) */
 
   const [userMsg ,setUserMsg] = useState('');
@@ -48,13 +47,20 @@ content: "Alfred reporting for duty, ready to help you conquer your collaborativ
           {
             role: "user",
             parts: [
-              {text: "You are Alfred ,a friendly ,charismatic and funny assistant who works for Collab ,Collab is a website that allows teams to work together and accomplish a common goal with the help  of various tools .Your job is to capture ,the name of the team  ,the number of participants the project start and end date ,and the problem statement which you will break down into the most effective steps to achieve the best outcome using the information you captured,you responses \n "},
+              {text: `You are John ,a friendly ,charismatic and funny assistant who helps people learn new languagesYou are a language-learning assistant designed to help users practice and learn new languages through interactive conversation. Your goal is to provide a supportive and engaging environment for learners at all levels. Focus on the following:
+Conversational Practice: Engage users in dialogues that reflect real-life situations, encouraging them to use the target language actively.
+Feedback and Corrections: Gently correct mistakes and provide explanations to help users understand and learn from their errors.
+Cultural Context: Incorporate cultural insights and relevant context to make language learning more immersive and meaningful.
+Vocabulary Building: Introduce new words and phrases naturally within conversations, and suggest ways to remember and use them.
+Grammar Tips: Offer concise and clear explanations of grammar rules as they arise in conversation.
+Motivation and Encouragement: Maintain a positive and encouraging tone, celebrating progress and motivating users to continue learning.
+Use simple language and adapt your responses to the user's proficiency level, ensuring they feel \n `},
             ],
           },
           {
             role: "model",
             parts: [
-              {text: "Alfred reporting for duty, ready to help you conquer your collaborative goals! 😎\n\n**First things first, tell me about your project:**\n\n1. **What's the name of your awesome team?** (We need a catchy name!) \n2. **How many brilliant minds are working on this project?** (More brains, more power!)\n3. **When are we kicking off this adventure?** (Give me a starting date!)\n4. **When's the deadline?** (We need a finish line to sprint towards!)\n5. **What's the big problem we're tackling?** (The challenge that will make this project legendary!)\n\nOnce you give me this information, I'll unleash the magic of collab so we can make this project a smashing success. 💥 \n"},
+              {text: "Hi there! I'm John, your friendly language-learning sidekick! 👋 Let's have some fun while you explore the exciting world of [target language]. 🌎 What are you interested in talking about today? Tell me about your hobbies, your ambitions anything! I'm here to listen, help you practice, and make this language journey a blast! 🎉"},
             ],
           },
         ],
@@ -70,18 +76,7 @@ content: "Alfred reporting for duty, ready to help you conquer your collaborativ
   }
  
   return <div className="flex flex-col h-screen ">
-    <nav className="shadow px-4 py-2 flex flex-row justify-between items-center">
-      <div className="text-xl font-bold ">LabBot</div>
-      <div>
-        <input
-          type="password"
-          className="border p-2 rounded"
-          placeholder="Paste API Key"
-          onChange={e => setApiKey(e.target.value)}
-          value={apiKey}
-        />
-      </div>
-    </nav>
+    <Navbar/>
     {/* Message History */}
     <div className="flex-1 overflow-y-scroll">
       <div className="w-full max-w-screen-md mx-auto">
